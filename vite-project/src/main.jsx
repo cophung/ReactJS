@@ -1,37 +1,50 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {
     createBrowserRouter,
-    RouterProvider
-} from "react-router-dom"
-import Layout from './components/Layout'
-import ErrorPage from "./error-page"
-import './index.css'
-import Home from './pages/Home'
-import Contact, { loaderContact } from './pages/Contact/Contact'
-import ContactAdd, { contactAction } from './pages/Contact/Add'
+    RouterProvider,
+} from "react-router-dom";
+import ErrorPage from "./error-page";
+import './index.css';
+import Contact, {
+    loader as contactLoader,
+} from "./routes/contact";
+import EditContact, {
+    action as editAction,
+} from "./routes/edit";
+import {
+    action as destroyAction
+} from "./routes/destroy";
+import Root, {
+    action as rootAction,
+    loader as rootLoader,
+} from "./routes/root";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Layout />,
+        element: <Root />,
         errorElement: <ErrorPage />,
+        loader: rootLoader,
+        action: rootAction,
         children: [
             {
-                path: "/",
-                element: <Home />
-            },
-            {
-                path: "/Contacts",
+                path: "contacts/:contactId",
                 element: <Contact />,
-                loader: loaderContact
+                loader: contactLoader,
             },
             {
-                path: "/Contacts/Add",
-                element: <ContactAdd />,
-                action: contactAction
-            }
-        ],
+                path: "contacts/:contactId/edit",
+                element: <EditContact />,
+                loader: contactLoader,
+                action: editAction,
+            },
+            {
+                path: "contacts/:contactId/destroy",
+                action: destroyAction,
+                errorElement: <div>Oops! There was an error.</div>,
+            },
+        ]
     },
 ]);
 
