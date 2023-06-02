@@ -3,7 +3,7 @@ import {
     useLoaderData,
     useFetcher
 } from "react-router-dom";
-import { getContact, updateContact } from "../contacts";
+import { getContact, updateContact } from "./contacts";
 
 export async function loader({ params }) {
     const contact = await getContact(params.contactId);
@@ -27,7 +27,7 @@ export default function Contact() {
     const { contact } = useLoaderData();
 
     return (
-        <div id="contact">
+        <div id="react-router-contact">
             <div>
                 <img
                     key={contact.avatar}
@@ -62,7 +62,10 @@ export default function Contact() {
 
                 <div>
                     <Form action="edit">
-                        <button type="submit">Edit</button>
+                        <button
+                            className="react-router-button"
+                            type="submit"
+                        >Edit</button>
                     </Form>
                     <Form
                         method="post"
@@ -77,7 +80,7 @@ export default function Contact() {
                             }
                         }}
                     >
-                        <button type="submit">Delete</button>
+                        <button className="react-router-button" type="submit">Delete</button>
                     </Form>
                 </div>
             </div>
@@ -96,6 +99,7 @@ function Favorite({ contact }) {
     return (
         <fetcher.Form method="post">
             <button
+                className="react-router-button"
                 name="favorite"
                 value={favorite ? "false" : "true"}
                 aria-label={

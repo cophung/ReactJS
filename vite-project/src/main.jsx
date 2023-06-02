@@ -4,8 +4,8 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
-import ErrorPage from "./error-page";
-import './index.css';
+import './index.css'
+import ErrorPage from "./routes/error-page";
 import Contact, {
     loader as contactLoader,
     action as contactAction
@@ -21,6 +21,9 @@ import Root, {
     loader as rootLoader,
 } from "./routes/root";
 import Index from "./routes/index";
+
+import ContextApp from './Test/React/Context/App';
+import ReducerAndContextApp from './Test/React/ReducerAndContext/App';
 
 const router = createBrowserRouter([
     {
@@ -53,8 +56,21 @@ const router = createBrowserRouter([
                     },
                 ]
             }
-        ]
+        ],
     },
+    {
+        path: "/React",
+        children: [
+            {
+                path: "Context",
+                element: <ContextApp />
+            },
+            {
+                path: "ReducerAndContext",
+                element: <ReducerAndContextApp />
+            },
+        ]
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

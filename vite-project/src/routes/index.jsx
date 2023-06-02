@@ -1,6 +1,6 @@
 export default function Index() {
     return (
-        <p id="zero-state">
+        <p id="react-router-zero-state">
             This is a demo for React Router.
             <br />
             Check out{" "}

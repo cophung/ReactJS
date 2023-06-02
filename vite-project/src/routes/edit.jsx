@@ -1,5 +1,5 @@
 import { Form, useLoaderData, redirect, useNavigate } from "react-router-dom";
-import { updateContact } from "../contacts";
+import { updateContact } from "./contacts";
 
 export async function action({ request, params }) {
     const formData = await request.formData();
@@ -15,10 +15,11 @@ export default function EditContact() {
     const navigate = useNavigate();
 
     return (
-        <Form method="post" id="contact-form">
+        <Form method="post" id="react-router-contact-form">
             <p>
                 <span>Name</span>
                 <input
+                    className="react-router-input"
                     placeholder="First"
                     aria-label="First name"
                     type="text"
@@ -26,6 +27,7 @@ export default function EditContact() {
                     defaultValue={contact.first}
                 />
                 <input
+                    className="react-router-input"
                     placeholder="Last"
                     aria-label="Last name"
                     type="text"
@@ -36,6 +38,7 @@ export default function EditContact() {
             <label>
                 <span>Twitter</span>
                 <input
+                    className="react-router-input"
                     type="text"
                     name="twitter"
                     placeholder="@jack"
@@ -45,6 +48,7 @@ export default function EditContact() {
             <label>
                 <span>Avatar URL</span>
                 <input
+                    className="react-router-input"
                     placeholder="https://example.com/avatar.jpg"
                     aria-label="Avatar URL"
                     type="text"
@@ -55,14 +59,16 @@ export default function EditContact() {
             <label>
                 <span>Notes</span>
                 <textarea
+                    className="react-router-textarea"
                     name="notes"
                     defaultValue={contact.notes}
                     rows={6}
                 />
             </label>
             <p>
-                <button type="submit">Save</button>
+                <button className="react-router-button" type="submit">Save</button>
                 <button
+                    className="react-router-button"
                     type="button"
                     onClick={() => {
                         navigate(-1);

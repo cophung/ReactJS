@@ -11,7 +11,7 @@ import {
 import {
     createContact,
     getContacts
-} from "../contacts";
+} from "./contacts";
 
 export async function action() {
     const contact = await createContact();
@@ -42,14 +42,14 @@ export default function Root() {
     }, [q]);
 
     return (
-        <>
-            <div id="sidebar">
+        <div id="react-router-root">
+            <div id="react-router-sidebar">
                 <h1>React Router Contacts</h1>
                 <div>
                     <Form id="search-form" role="search">
                         <input
                             id="q"
-                            className={searching ? "loading" : ""}
+                            className={searching ? "react-router-input loading" : "react-router-input"}
                             aria-label="Search contacts"
                             placeholder="Search"
                             type="search"
@@ -65,17 +65,17 @@ export default function Root() {
                             }}
                         />
                         <div
-                            id="search-spinner"
+                            id="react-router-search-spinner"
                             aria-hidden
                             hidden={!searching}
                         />
                         <div
-                            className="sr-only"
+                            className="react-router-sr-only"
                             aria-live="polite"
                         ></div>
                     </Form>
                     <Form method="post">
-                        <button type="submit">New</button>
+                        <button className="react-router-button" type="submit">New</button>
                     </Form>
                 </div>
                 <nav>
@@ -113,13 +113,13 @@ export default function Root() {
                 </nav>
             </div>
             <div
-                id="detail"
+                id="react-router-detail"
                 className={
                     navigation.state === "loading" ? "loading" : ""
                 }
             >
                 <Outlet />
             </div>
-        </>
+        </div>
     );
 }
