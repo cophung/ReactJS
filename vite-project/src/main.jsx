@@ -25,6 +25,8 @@ import Index from "./routes/ReactRouter/index";
 import ContextApp from './Test/React/Context/App';
 import ReducerAndContextApp from './Test/React/ReducerAndContext/App';
 
+import SWRApp from './Test/React/APICalls/swr/App'
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -68,6 +70,10 @@ const router = createBrowserRouter([
             {
                 path: "ReducerAndContext",
                 element: <ReducerAndContextApp />
+            },
+            {
+                path: "APICalls/swr",
+                element: <SWRApp />
             },
         ]
     }
