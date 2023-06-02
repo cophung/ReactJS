@@ -4,7 +4,8 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
-import './index.css'
+import './index.css';
+import './Test/React/Learni18n/i18n';
 import ErrorPage from "./routes/ReactRouter/error-page";
 import Contact, {
     loader as contactLoader,
@@ -26,6 +27,8 @@ import ContextApp from './Test/React/Context/App';
 import ReducerAndContextApp from './Test/React/ReducerAndContext/App';
 
 import SWRApp from './Test/React/APICalls/swr/App'
+
+import Learni18nApp from './Test/React/Learni18n/App'
 
 const router = createBrowserRouter([
     {
@@ -74,6 +77,10 @@ const router = createBrowserRouter([
             {
                 path: "APICalls/swr",
                 element: <SWRApp />
+            },
+            {
+                path: "Learni18n",
+                element: <Learni18nApp />
             },
         ]
     }
