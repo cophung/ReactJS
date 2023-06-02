@@ -5,22 +5,22 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import './index.css'
-import ErrorPage from "./routes/error-page";
+import ErrorPage from "./routes/ReactRouter/error-page";
 import Contact, {
     loader as contactLoader,
     action as contactAction
-} from "./routes/contact";
+} from "./routes/ReactRouter/contact";
 import EditContact, {
     action as editAction,
-} from "./routes/edit";
+} from "./routes/ReactRouter/edit";
 import {
     action as destroyAction
-} from "./routes/destroy";
+} from "./routes/ReactRouter/destroy";
 import Root, {
     action as rootAction,
     loader as rootLoader,
-} from "./routes/root";
-import Index from "./routes/index";
+} from "./routes/ReactRouter/root";
+import Index from "./routes/ReactRouter/index";
 
 import ContextApp from './Test/React/Context/App';
 import ReducerAndContextApp from './Test/React/ReducerAndContext/App';
